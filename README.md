@@ -8,6 +8,8 @@ Hello again!!!
 
 Edited again in master branch
 
+Changes with Bash
+
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
 
