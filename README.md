@@ -9,7 +9,11 @@ Hello again!!!
 Edited again in master branch
 
 Changes with Bash
+
 Another change in Bash to make conflict
+
+Another change in GitHub to make conflict
+
 
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
