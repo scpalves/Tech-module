@@ -1,4 +1,4 @@
-MAKING CHANGES HERE!
+﻿This will make a conflict!
 
 
 # Tech-module
