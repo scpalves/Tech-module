@@ -14,7 +14,11 @@ Another change in Bash to make conflict
 
 Another change in GitHub to make conflict
 
+
 Make change in master branch
+
+Make new branch "develop"
+
 
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
