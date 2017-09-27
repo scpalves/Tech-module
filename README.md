@@ -1,5 +1,8 @@
-﻿This will make a conflict!
+﻿﻿This will make a conflict!
 
+Changes here!
+
+RESOLVED CONFLICT!
 
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
