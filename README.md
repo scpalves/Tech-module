@@ -6,6 +6,8 @@ RESOLVED CONFLICT!
 
 Hello again!!!
 
+Edited again in master branch
+
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
 
