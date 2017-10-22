@@ -11,8 +11,10 @@ namespace AMinerTask
 {
     class AMinerTask
     {
-        private static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\AMinerTask\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         static Dictionary<string, string> resources = new Dictionary<string, string> { };
 
         static void AddResources(string resource, string quantity)
@@ -42,7 +44,7 @@ namespace AMinerTask
 
         static void WriteToFile(string text)
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (StreamWriter writer = new StreamWriter(outputFileName, true))
             {
                 writer.WriteLine(text);
             }
@@ -50,7 +52,7 @@ namespace AMinerTask
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -58,7 +60,7 @@ namespace AMinerTask
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines(inputFileName);
 
             int resourceIndex = 0;
             int quantityIndex = 1;

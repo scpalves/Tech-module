@@ -10,8 +10,10 @@ namespace BookLibrary
 {
     class BookLibrary
     {
-        static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\BookLibrary\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         static string[] TakeBookInfoToStringArray(string line)
         {
             return line
@@ -22,7 +24,7 @@ namespace BookLibrary
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -30,7 +32,7 @@ namespace BookLibrary
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines(inputFileName);
 
             int n = int.Parse(lines[0]);
 
@@ -43,7 +45,7 @@ namespace BookLibrary
 
             CleanOutputFile();
 
-            library.PrintInfo(path + "output.txt");
+            library.PrintInfo(outputFileName);
         }
     }
 
@@ -65,7 +67,7 @@ namespace BookLibrary
             books.Add(new Book(book[0], book[1], book[2], book[3], book[4], book[5]));
         }
 
-        public void PrintInfo(string path)
+        public void PrintInfo(string file)
         {
             Dictionary<string, double> info = new Dictionary<string, double> { };
 
@@ -83,11 +85,11 @@ namespace BookLibrary
 
             var sorted = info.OrderByDescending(x => x.Value).ThenBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
 
-            using (StreamWriter writer = new StreamWriter(path, true))
+            using (StreamWriter writer = new StreamWriter(file, true))
             {
                 foreach (KeyValuePair<string, double> peir in sorted)
                 {
-                    writer.WriteLine($"{peir.Key} -> {string.Format("{0:0.00}", peir.Value)}");
+                    writer.WriteLine($"{peir.Key} -> {peir.Value:0.00}");
                 }
                 writer.WriteLine();
             }

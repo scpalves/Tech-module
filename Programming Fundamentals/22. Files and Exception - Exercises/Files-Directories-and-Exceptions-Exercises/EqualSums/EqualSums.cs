@@ -9,7 +9,9 @@ namespace EqualSums
 {
     internal class EqualSums
     {
-        private static readonly string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\EqualSums\";
+        private static readonly string inputFileName = "input.txt";
+
+        private static readonly string outputFileName = "output.txt";
 
         private static int SumElementsInSubarray(int[] array, int startIndex, int endIndex)
         {
@@ -24,7 +26,7 @@ namespace EqualSums
 
         private static void FileWrite(string text)
         {
-            using (System.IO.StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (System.IO.StreamWriter writer = new StreamWriter(outputFileName, true))
             {
                 writer.WriteLine(text);
             }
@@ -32,7 +34,7 @@ namespace EqualSums
 
         private static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -40,7 +42,7 @@ namespace EqualSums
 
         private static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines(inputFileName);
 
             CleanOutputFile();
 

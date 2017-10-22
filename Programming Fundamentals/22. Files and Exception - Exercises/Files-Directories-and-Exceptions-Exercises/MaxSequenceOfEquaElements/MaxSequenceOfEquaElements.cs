@@ -9,17 +9,15 @@ namespace MaxSequenceOfEquaElements
 {
     class MaxSequenceOfEquaElements
     {
-        static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\MaxSequenceOfEquaElements\";
-
         static string[] ReadFile()
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines("input.txt");
             return lines;
         }
 
         static void WriteToFile(string text)
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (StreamWriter writer = new StreamWriter("output.txt", true))
             {
                 writer.WriteLine(text);
             }
@@ -27,7 +25,7 @@ namespace MaxSequenceOfEquaElements
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter("output.txt", false))
             {
                 writer.Write(String.Empty);
             }

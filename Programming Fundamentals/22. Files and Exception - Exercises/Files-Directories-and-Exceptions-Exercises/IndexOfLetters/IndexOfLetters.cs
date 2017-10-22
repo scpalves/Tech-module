@@ -9,6 +9,9 @@ namespace IndexOfLetters
 {
     class IndexOfLetters
     {
+        private static readonly string inputFileName = "input.txt";
+        private static readonly string outputPath = "output.txt";
+
         static char[] GenerateArrayOfLetters()
         {
             List<char> letters = new List<char>();
@@ -21,25 +24,21 @@ namespace IndexOfLetters
             return letters.ToArray();
         }
 
-        static void CleanOutputFile(string path)
+        static void CleanOutputFile()
         {
-            using (System.IO.StreamWriter file = new StreamWriter(path, false))
+            using (System.IO.StreamWriter writer = new StreamWriter(outputPath, false))
             {
-                file.Write(String.Empty);
+                writer.Write(String.Empty);
             }
         }
 
         static void Main(string[] args)
         {
             char[] letters = GenerateArrayOfLetters();
-
-            string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\IndexOfLetters\input.txt";
-
-            string[] lines = File.ReadAllLines(path);
-
-            string outputPath = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\IndexOfLetters\output.txt";
-
-            CleanOutputFile(outputPath);
+            
+            string[] lines = File.ReadAllLines(inputFileName);
+            
+            CleanOutputFile();
 
             foreach (string line in lines)
             {

@@ -11,9 +11,9 @@ namespace MostFrequentNumber
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\MostFrequentNumber\input.txt";
+            string[] lines = File.ReadAllLines("input.txt");
 
-            string[] lines = File.ReadAllLines(path);
+            File.Delete("output.txt");
 
             foreach (string line in lines)
             {
@@ -45,7 +45,7 @@ namespace MostFrequentNumber
                 }
 
                 using (System.IO.StreamWriter file =
-                    new System.IO.StreamWriter(@"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\MostFrequentNumber\output.txt", true))
+                    new System.IO.StreamWriter("output.txt", true))
                 {
                     file.WriteLine(mostFrequentNumber);
                 }

@@ -10,8 +10,10 @@ namespace BookLibraryModification
 {
     class BookLibraryModification
     {
-        static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\BookLibraryModification\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         static string[] TakeBookInfoToStringArray(string line)
         {
             return line
@@ -22,7 +24,7 @@ namespace BookLibraryModification
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -30,7 +32,7 @@ namespace BookLibraryModification
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines(inputFileName);
 
             int n = int.Parse(lines[0]);
 
@@ -47,7 +49,7 @@ namespace BookLibraryModification
 
             CleanOutputFile();
 
-            library.PrintTitleReleasedAfter(date, path + "output.txt");
+            library.PrintTitleReleasedAfter(date, outputFileName);
         }
     }
 
@@ -70,12 +72,12 @@ namespace BookLibraryModification
         }
 
 
-        public void PrintTitleReleasedAfter(DateTime date, string path)
+        public void PrintTitleReleasedAfter(DateTime date, string file)
         {
             var result = books.Where(x => x.ReleaseDate > date)
                               .ToList().OrderBy(x => x.ReleaseDate).ThenBy(x => x.Title).ToList();
 
-            using (StreamWriter writer = new StreamWriter(path, true))
+            using (StreamWriter writer = new StreamWriter(file, true))
             {
                 foreach (Book book in result)
                 {

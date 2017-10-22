@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace AdvertisementMessage
 {
     class AdvertisementMessage
     {
-        private static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\AdvertisementMessage\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         private static readonly string[] phrases = new string[] { "Excellent product.", "Such a great product.", "I always use that product.", "Best product of its category.", "Exceptional product.", "I can’t live without this product." };
         private static readonly string[] events = new string[] { "Now I feel good.", "I have succeeded with this product.", "Makes miracles. I am happy of the results!", "I cannot believe but now I feel awesome.", "Try it yourself, I am very satisfied.", "I feel great!" };
         private static readonly string[] authors = new string[] { "Diana", "Petya", "Stella", "Elena", "Katya", "Iva", "Annie", "Eva" };
@@ -54,7 +57,7 @@ namespace AdvertisementMessage
 
         private static void WriteToFile(string text)
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (StreamWriter writer = new StreamWriter(outputFileName, true))
             {
                 writer.WriteLine(text);
             }
@@ -62,7 +65,7 @@ namespace AdvertisementMessage
 
         private static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -70,7 +73,7 @@ namespace AdvertisementMessage
 
         static void Main(string[] args)
         {
-            string text = File.ReadAllText(path + "input.txt");
+            string text = File.ReadAllText(inputFileName);
 
             new AdvertisementMessage(int.Parse(text));
         }

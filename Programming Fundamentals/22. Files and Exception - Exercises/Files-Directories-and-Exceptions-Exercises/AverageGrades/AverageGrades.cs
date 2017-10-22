@@ -9,8 +9,10 @@ namespace AverageGrades
 {
     class AverageGrades
     {
-        private static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\AverageGrades\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         static List<Student> students = new List<Student>();
 
         static void PrintStudentsAverageGrade()
@@ -20,7 +22,7 @@ namespace AverageGrades
             {
                 if (student.Average >= 5.00)
                 {
-                    WriteToFile($"{student.Name} -> {string.Format("{0:0.00}", student.Average)}");
+                    WriteToFile($"{student.Name} -> {student.Average:0.00}");
                 }
             }
             WriteToFile(String.Empty);
@@ -28,7 +30,7 @@ namespace AverageGrades
 
         static void WriteToFile(string text)
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (StreamWriter writer = new StreamWriter(outputFileName, true))
             {
                 writer.WriteLine(text);
             }
@@ -36,7 +38,7 @@ namespace AverageGrades
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
@@ -44,7 +46,7 @@ namespace AverageGrades
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines(path + "input.txt");
+            string[] lines = File.ReadAllLines(inputFileName);
 
             int n = int.Parse(lines[0]);
 

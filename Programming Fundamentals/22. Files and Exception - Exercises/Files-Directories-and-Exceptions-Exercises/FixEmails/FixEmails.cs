@@ -9,8 +9,10 @@ namespace FixEmails
 {
     class FixEmails
     {
-        private static string path = @"C:\Users\Aleksandur\Desktop\Homeworks\Files-Directories-and-Exceptions-Exercises\FixEmails\";
+        private static readonly string inputFileName = "input.txt";
 
+        private static readonly string outputFileName = "output.txt";
+        
         static Dictionary<string, string> emails = new Dictionary<string, string> { };
 
         static void AddEmail(string name, string email)
@@ -50,12 +52,12 @@ namespace FixEmails
 
         static void TakeInput(out string[] lines)
         {
-            lines = File.ReadAllLines(path + "input.txt");
+            lines = File.ReadAllLines(inputFileName);
         }
 
         static void WriteToFile(string text)
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", true))
+            using (StreamWriter writer = new StreamWriter(outputFileName, true))
             {
                 writer.WriteLine(text);
             }
@@ -63,7 +65,7 @@ namespace FixEmails
 
         static void CleanOutputFile()
         {
-            using (StreamWriter writer = new StreamWriter(path + "output.txt", false))
+            using (StreamWriter writer = new StreamWriter(outputFileName, false))
             {
                 writer.Write(String.Empty);
             }
