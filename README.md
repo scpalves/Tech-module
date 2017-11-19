@@ -1,25 +1,4 @@
-﻿﻿This will make a conflict!
-
-Changes here!
-
-RESOLVED CONFLICT!
-
-Hello again!!!
-
-Edited again in master branch
-
-Changes with Bash
-
-Another change in Bash to make conflict
-
-Another change in GitHub to make conflict
-
-
-Make change in master branch
-
-Make new branch "develop"
-
-
+﻿
 # Tech-module
 SoftUni Tech module - Programming Fundamentals and Software Technologies
 
